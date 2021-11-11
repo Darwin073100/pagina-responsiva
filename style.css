@@ -79,3 +79,13 @@ body{
     color: white;
    grid-area: footer;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedor{
+        grid-template-areas: "header header header"
+                         "contenido contenido contenido"
+                         "sidebar sidebar sidebar"
+                         "widget-1 widget-1 widget-2"
+                         "footer footer footer";
+    }
+}

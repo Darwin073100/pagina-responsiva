@@ -8,3 +8,66 @@ body{
     color: #000;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4, auto);
+}
+
+.contenedor > div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer{
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+/*
+grid-column-start indica en que columna inicia
+grid-column-end indica en que columna termina
+*/
+.contenedor .header{
+    background: #12203E;
+    color: #fff;
+    grid-column-start: 1;
+    grid-column-end:-1;
+}
+
+/*Le decimos que queremos que abarque lo de dos columnas*/
+.contenedor .contenido{
+    grid-column: span 2;
+}
+
+.contenedor .sidebar{
+    grid-column: 3 / 4;
+    background: #fAA43D;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*O podemos utilizar span 2 en ves de calcular de donde a donde.*/
+    grid-row: 2 / 4;
+}
+
+.contenedor .widget-1,
+.contenedor .widget-2{
+    background: #55a8fd;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor .footer{
+    background: black;
+    color: white;
+    grid-column: span 3;
+}

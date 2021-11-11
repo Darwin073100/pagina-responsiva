@@ -48,12 +48,13 @@ grid-column-end indica en que columna termina
     grid-column: 3 / 4;
     background: #fAA43D;
     text-align: center;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     /*O podemos utilizar span 2 en ves de calcular de donde a donde.*/
-    grid-row: 2 / 4;
+    grid-row: span 2;
 }
 
 .contenedor .widget-1,
@@ -70,4 +71,22 @@ grid-column-end indica en que columna termina
     background: black;
     color: white;
     grid-column: span 3;
+}
+
+
+@media screen and (max-width: 768px){
+    .contenedor .contenido{
+        grid-column: 1 / -1;
+    }
+
+    .contenedor .sidebar{
+        grid-column: 1 / -1;
+    }
+
+    .contenedor .widget-1{
+        grid-column: span 2;
+    }
+    .contenedor .widget-2{
+        grid-column: span 1;
+    }
 }

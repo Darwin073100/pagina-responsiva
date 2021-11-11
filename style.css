@@ -17,6 +17,11 @@ body{
     grid-gap: 20px;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(4, auto);
+    
+    grid-template-areas: "header header header"
+                         "contenido contenido sidebar"
+                         "widget-1 widget-2 sidebar"
+                         "footer footer footer";
 }
 
 .contenedor > div,
@@ -28,20 +33,16 @@ body{
     padding: 20px;
     border-radius: 4px;
 }
-/*
-grid-column-start indica en que columna inicia
-grid-column-end indica en que columna termina
-*/
+
 .contenedor .header{
     background: #12203E;
     color: #fff;
-    grid-column-start: 1;
-    grid-column-end:-1;
+    grid-area: header;
 }
 
 /*Le decimos que queremos que abarque lo de dos columnas*/
 .contenedor .contenido{
-    grid-column: span 2;
+   grid-area: contenido;
 }
 
 .contenedor .sidebar{
@@ -52,9 +53,7 @@ grid-column-end indica en que columna termina
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /*O podemos utilizar span 2 en ves de calcular de donde a donde.*/
-    grid-row: span 2;
+    grid-area: sidebar;
 }
 
 .contenedor .widget-1,
@@ -67,26 +66,16 @@ grid-column-end indica en que columna termina
     justify-content: center;
 }
 
+.contenedor .widget-1{
+    grid-area: widget-1;
+}
+
+.contenedor .widget-2{
+    grid-area: widget-2;
+}
+
 .contenedor .footer{
     background: black;
     color: white;
-    grid-column: span 3;
-}
-
-
-@media screen and (max-width: 768px){
-    .contenedor .contenido{
-        grid-column: 1 / -1;
-    }
-
-    .contenedor .sidebar{
-        grid-column: 1 / -1;
-    }
-
-    .contenedor .widget-1{
-        grid-column: span 2;
-    }
-    .contenedor .widget-2{
-        grid-column: span 1;
-    }
+   grid-area: footer;
 }
